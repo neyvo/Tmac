@@ -56,7 +56,7 @@
             <div class="col-md-4 col-md-offset-4">
                 
                 <div class="login-panel panel panel-default">
-                    <center><h3>Tenis de Mesa Acre</h3></center>
+                    <center><h3>Tenis de Mesa Acre - v1.0</h3></center>
                     <div class="panel-heading">
                         <h3 class="panel-title">Login</h3>
                     </div>
