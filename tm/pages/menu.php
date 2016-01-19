@@ -16,23 +16,22 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Procurar...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                            </div>
-                            <!-- /input-group -->
+                        
+                        
+                          <?php if($_SESSION['id_usuario']) {?>
+                        <li>
+                            <a href="inicio.php"><i class="fa fa-dashboard fa-fw"></i> Painel</a>
+                        </li>
+                          <?php } ?>
+                        <li>
+                            <a href="index.php"><i class="fa fa-table fa-fw"></i> Ranking Acumulado</a>
+                        </li>
+                        
+                        <li>
+                            <a href="ranking_2016.php"><i class="fa fa-table fa-fw"></i> Ranking 2016</a>
                         </li>
                         <li>
-                            <a href="index.php"><i class="fa fa-dashboard fa-fw"></i> Painel</a>
-                        </li>
-                       
-                        <li>
-                            <a href="lista_atletas.php"><i class="fa fa-table fa-fw"></i> Atletas</a>
+                            <a href="ranking_2015.php"><i class="fa fa-table fa-fw"></i> Ranking 2015</a>
                         </li>
                         
                         <?php if($_SESSION['perfil'] == 'ADMINISTRADOR') { ?>
@@ -49,9 +48,18 @@
                             <a href="cad_torneio.php"><i class="fa fa-edit fa-fw"></i> Cadastrar Torneio</a>
                         </li>
                         <?php } ?>
+                        
+                        <?php if($_SESSION['id_usuario']) {?>
                         <li>
                             <a href="login.php"><i class="fa fa-edit fa-fw"></i> Sair</a>
                         </li>
+                        <?php } else { ?>
+                        <li>
+                            <a href="login.php"><i class="fa fa-edit fa-fw"></i> Entrar</a>
+                        </li>
+                        <?php } ?>
+                        
+                        
                         
                        
                     </ul>

@@ -4,19 +4,20 @@
 <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2 class="page-header">Ranking Acumulado</h2>
+                    <h2 class="page-header">Ranking 2016</h2>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
     
                 <!-- Pontuação acumulada geral -->
             
+                <?php $ano = '2016'; ?>
             
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="panel  <?php if(fmod(2015,2)==1){ echo 'panel-primary';} else { echo 'panel-green'; }?> ">
+                    <div class="panel  <?php if(fmod($ano,2)==1){ echo 'panel-primary';} else { echo 'panel-green'; }?> ">
                         <div class="panel-heading">
-                            Pontuação Acumulada 
+                            Ranking <?= $ano ?> 
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -39,7 +40,7 @@
 	
                        
                         
-                        $SQL = "select id_atleta, id_categoria, sum(pontos) total  from atleta_categoria WHERE excluido = 'N' group by id_atleta, id_categoria  order by total desc";
+                        $SQL = "select id_atleta, id_categoria, sum(pontos) total  from atleta_categoria WHERE excluido = 'N' and ano = '".$ano."' group by id_atleta, id_categoria  order by total desc";
 			
                        $listaA = DB::listarSQL($SQL);       
       
@@ -80,13 +81,12 @@
             
 
 
-
             <!-- /.row -->
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            Pontuação
+                            Pontuação <?= $ano ?>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -108,7 +108,10 @@
                                         
                 <?php		
 	
-                        $p = "";	        
+                        $p = "";	      
+                        
+                        $p['ano']['valor'] = $ano;
+                        $p['ano']['tipo'] = '=';
                         
                         $p['excluido']['valor'] = 'N';
                         $p['excluido']['tipo'] = '=';
