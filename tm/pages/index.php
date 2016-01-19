@@ -17,6 +17,149 @@
             </div>
             <!-- /.row -->
             
+            <!-- Pontuação acumulada geral -->
+            
+            
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel  <?php if(fmod(2015,2)==1){ echo 'panel-primary';} else { echo 'panel-green'; }?> ">
+                        <div class="panel-heading">
+                            Pontuação Acumulada 
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="dataTable_wrapper table-responsive">
+                                <table class="table table-striped table-bordered table-hover xtable" >
+                                    <thead>
+                                        <tr>                                         
+                                            
+                                            <th>Categoria</th>
+                                            <th>Atleta</th>
+                                            <th>Pontos</th>                                                                               
+                                            <th>Classificação</th>                                                                               
+                                            
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                <?php		
+	
+                       
+                        
+                        $SQL = "select id_atleta, id_categoria, sum(pontos) total  from atleta_categoria WHERE excluido = 'N' group by id_atleta, id_categoria  order by total desc";
+			
+                       $listaA = DB::listarSQL($SQL);       
+      
+                       if($listaA){
+                           
+                           $j = 1;
+                                 foreach($listaA as $linhaA){
+                                     
+                                     $atleta = DB::procurar("atleta", $linhaA['id_atleta']);
+                                     $categoria = DB::procurar("categoria", $linhaA['id_categoria']);
+                                     if($atleta['id'] == $_SESSION['id_usuario']) {
+                                    
+?>                                      
+                                        <tr class="gradeA">
+                                           
+                                           
+                                            <td><?= $categoria['nome'] ?></td>
+                                            <td><?= $atleta['nome'] ?></td>
+                                            <td><?= $linhaA['total'] ?></td>                                                                                                                                 
+                                            <td><?= $j ?></td>                                                                                                                                 
+                                        </tr>                                        
+                                 <?php } $j++; }
+                       
+                       
+                       
+                                 } ?>                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            
+
+            <!-- Pontuação acumulada por ano -->
+            
+            
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel  panel-yellow">
+                        <div class="panel-heading">
+                            Pontuação Acumulada por ano
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="dataTable_wrapper table-responsive">
+                                <table class="table table-striped table-bordered table-hover xtable" >
+                                    <thead>
+                                        <tr>                                         
+                                            <th>Ano</th>
+                                            <th>Categoria</th>
+                                            <th>Atleta</th>
+                                            <th>Pontos</th>                                                                               
+                                            <th>Classificação</th>                                                                               
+                                            
+                                            
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                <?php		
+	
+                       
+                        
+                        $SQL = "select ano,id_atleta, id_categoria, sum(pontos) total  from atleta_categoria WHERE excluido = 'N' group by ano,id_atleta, id_categoria  order by total desc";
+			
+                       $listaA = DB::listarSQL($SQL);       
+      
+                       if($listaA){
+                           
+                           $j = 1;
+                                 foreach($listaA as $linhaA){
+                                     
+                                     $atleta = DB::procurar("atleta", $linhaA['id_atleta']);
+                                     $categoria = DB::procurar("categoria", $linhaA['id_categoria']);
+                                     if($atleta['id'] == $_SESSION['id_usuario']) {
+                                    
+?>                                      
+                                        <tr class="gradeA">
+                                           
+                                           <td><?= $linhaA['ano'] ?></td> 
+                                            <td><?= $categoria['nome'] ?></td>
+                                            <td><?= $atleta['nome'] ?></td>
+                                            <td><?= $linhaA['total'] ?></td>                                                                                                                                 
+                                            <td><?= $j ?></td>                                                                                                                                 
+                                        </tr>                                        
+                                 <?php } $j++; }
+                       
+                       
+                       
+                                 } ?>                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            
+            
+            
+            
+            <!-- Pontuação individual por ano -->
             
             <?php 
             $ano = 2016; 
@@ -95,6 +238,9 @@
             </div>
             
             <?php $ano--; } ?>
+            
+            
+            <!--  -->
             
             
             
