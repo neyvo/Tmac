@@ -1,6 +1,9 @@
 <?php include "topo.php"; ?>
 
 <?php 
+        if($_SESSION['perfil'] <> 'ADMINISTRADOR'){
+            header("location: index.php");
+        }
 
         
          if($_REQUEST['id']){

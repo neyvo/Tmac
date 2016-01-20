@@ -2,7 +2,10 @@
 
 <?php 
 
-        
+        if($_SESSION['perfil'] <> 'ADMINISTRADOR'){
+            header("location: index.php");
+        }
+
          if($_REQUEST['id']){
             $o = DB::procurar("atleta", $_REQUEST['id']);
          }
