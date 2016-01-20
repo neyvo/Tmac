@@ -17,7 +17,7 @@ require_once('../util/util.php');
 		$_REQUEST['p']['excluido'] = "N";
 
 		if($_REQUEST['p']['data_nascimento']) {
-				$_REQUEST['p']['data_nascimento'] = convertDataMysql($_REQUEST['p']['data_nascimento']);
+				//$_REQUEST['p']['data_nascimento'] = convertDataMysql($_REQUEST['p']['data_nascimento']);
 				
 			}
 			
@@ -31,6 +31,8 @@ require_once('../util/util.php');
 				$_REQUEST['p']['valor'] = str_replace(",",".",$_REQUEST['p']['valor']);
 				
 		}	
+                
+                //echo $_REQUEST['p']['data_nascimento'];
 
 	//#####################################################################################################################################
 	// ATUALIZA UM REGISTRO
@@ -124,5 +126,7 @@ require_once('../util/util.php');
 		else
 			header("location: ../pages/".$_REQUEST['objeto'].".php?msg=".$msg."&".$_REQUEST['retorno']);	
 
-	}
+	
+  }
+ 
 ?>

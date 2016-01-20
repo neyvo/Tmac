@@ -41,10 +41,14 @@
                                         <div class="form-group">
                                             <label>Nome</label>
                                             <input class="form-control" name="p[nome]" value="<?= $o['nome'] ?>" required />                                            
-                                        </div>                                        
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Data de Nascimento - (<?= formataData($o['data_nascimento']) ?>)</label>
+                                            <input class="form-control" placeholder="Data de Nascimento" name="p[data_nascimento]" type="date" value="<?= formataData($o['data_nascimento']) ?>" >                                  
+                                        </div>
                                         <div class="form-group">
                                             <label>Telefone</label>
-                                            <input class="form-control" name="p[telefone]" value="<?= $o['telefone'] ?>" required />                                            
+                                            <input class="form-control" name="p[telefone]" value="<?= $o['telefone'] ?>"  />                                            
                                         </div>  
                                         <div class="form-group">
                                             <label>E-mail</label>
@@ -122,6 +126,7 @@
                                         <tr>
                                             <th>Codigo</th>
                                             <th>Nome</th>
+                                            <th>Nascimento</th>
                                             <th>Telefone</th>
                                             <th>E-mail</th>
                                             <th>Perfil</th>
@@ -147,6 +152,7 @@
                                         <tr class="gradeA">
                                             <td><?= $linha['id'] ?></td>
                                             <td><?= $linha['nome'] ?></td>
+                                            <td><?= formataData($linha['data_nascimento']) ?></td>
                                             <td><?= $linha['telefone'] ?></td>
                                             <td><?= $linha['email'] ?></td>
                                             <td><?= $linha['perfil'] ?></td>

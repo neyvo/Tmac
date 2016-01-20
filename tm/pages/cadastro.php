@@ -69,7 +69,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Data de Nascimento</label>
-                                    <input class="form-control" placeholder="Data de Nascimento" name="p[data_nascimento]" type="date" autofocus required>                                  
+                                    <input class="form-control" placeholder="Data de Nascimento" name="p[data_nascimento]" type="date" required>                                  
                                 </div>
                                 <div class="form-group">
                                     <label>E-mail</label>

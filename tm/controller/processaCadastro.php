@@ -18,7 +18,7 @@ if ($_REQUEST['acao'] == "Salvar") {
     $_REQUEST['p']['ativo'] = "S";
 
     if ($_REQUEST['p']['data_nascimento']) {
-        $_REQUEST['p']['data_nascimento'] = convertDataMysql($_REQUEST['p']['data_nascimento']);
+        //$_REQUEST['p']['data_nascimento'] = convertDataMysql($_REQUEST['p']['data_nascimento']);
     }
 
     if ($_REQUEST['p']['data']) {
