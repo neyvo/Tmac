@@ -51,6 +51,11 @@
                         
                         <?php if($_SESSION['id_usuario']) {?>
                         <li>
+                            
+                            <a href="alterar_dados.php"><i class="fa fa-edit fa-fw"></i> Alterar Dados</a>
+                        </li>
+                        <li>
+                            
                             <a href="login.php"><i class="fa fa-edit fa-fw"></i> Sair</a>
                         </li>
                         <?php } else { ?>

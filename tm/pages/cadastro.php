@@ -24,7 +24,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Tenis de Mesa - ACRE - LOGIN</title>
+    <title>Tenis de Mesa - ACRE - CADASTRO</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -58,24 +58,32 @@
                 <div class="login-panel panel panel-default">
                     <center><h3><a href="index.php">Tenis de Mesa Acre - v1.0</a></h3></center>
                     <div class="panel-heading">
-                        <h3 class="panel-title">Login</h3>
+                        <h3 class="panel-title">Cadastro de Atleta</h3>
                     </div>
                     <div class="panel-body">
-                        <form role="form" action="../controller/processaLogin.php" method="post">
+                        <form role="form" action="../controller/processaCadastro.php" method="post">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus required>
+                                    <input class="form-control" placeholder="Nome Completo" name="p[nome]" type="text" autofocus required>                                  
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Senha" name="senha" type="password" value="">
+                                    <input class="form-control" placeholder="Data de Nascimento" name="p[data_nascimento]" type="date" autofocus required>                                  
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="E-mail" name="p[email]" type="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Telefone" name="p[telefone]" type="text" required>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" placeholder="Senha" name="p[senha]" type="password" value="" required >
                                 </div>
                                 
                                 <!-- Change this to a button or input when using this as a form -->
-                                <button class="btn btn-lg btn-success btn-block">Login</button>
+                                <button class="btn btn-lg btn-success btn-block">Enviar</button>
+                                <input type="hidden" name="acao" value="Salvar" />
                             </fieldset>
                         </form>
-                        <hr>
-                        <center><h4><a href="cadastro.php"><button class="btn btn-lg btn-block btn-primary">Não tenho cadastro</button></a></h4></center>
                         <hr>
  <?php if($_REQUEST['erro']) { ?>
                         <div class="alert alert-danger">

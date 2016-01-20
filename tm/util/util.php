@@ -18,7 +18,12 @@ function erro($id_erro){
     if($id_erro == '1')
     {
         $msg = "Usuário/Senha inválido";
-    }    
+    }  
+    
+     if($id_erro == '2')
+    {
+        $msg = "Cadastrado com sucesso!";
+    }  
         
         
     return $msg;
