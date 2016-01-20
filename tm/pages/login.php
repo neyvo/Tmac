@@ -82,6 +82,12 @@
                                 <?= erro($_REQUEST['erro']) ?>
                             </div>
  <?php } ?>
+                         <?php if($_REQUEST['msg']) { ?>
+                         <div class="alert alert-success alert-dismissable">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                 <?= erro($_REQUEST['msg']) ?>
+                            </div>
+ <?php } ?>
 
                     </div>
                 </div>
