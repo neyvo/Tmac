@@ -64,18 +64,23 @@
                         <form role="form" action="../controller/processaCadastro.php" method="post">
                             <fieldset>
                                 <div class="form-group">
+                                    <label>Nome</label>
                                     <input class="form-control" placeholder="Nome Completo" name="p[nome]" type="text" autofocus required>                                  
                                 </div>
                                 <div class="form-group">
+                                    <label>Data de Nascimento</label>
                                     <input class="form-control" placeholder="Data de Nascimento" name="p[data_nascimento]" type="date" autofocus required>                                  
                                 </div>
                                 <div class="form-group">
+                                    <label>E-mail</label>
                                     <input class="form-control" placeholder="E-mail" name="p[email]" type="email" required>
                                 </div>
                                 <div class="form-group">
+                                    <label>Telefone</label>
                                     <input class="form-control" placeholder="Telefone" name="p[telefone]" type="text" required>
                                 </div>
                                 <div class="form-group">
+                                    <label>Senha</label>
                                     <input class="form-control" placeholder="Senha" name="p[senha]" type="password" value="" required >
                                 </div>
                                 
