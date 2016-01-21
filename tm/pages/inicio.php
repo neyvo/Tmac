@@ -18,7 +18,7 @@
             <!-- /.row -->
             
             <!-- Pontuação acumulada geral -->
-            
+           
             
             <div class="row">
                 <div class="col-lg-12">
@@ -42,12 +42,25 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                         <?php 
+            //localizar as categorias que o atleta participa
+            
+            $SQL = "select distinct id_categoria from atleta_categoria where id_atleta = 1";
+            
+              $liC = DB::listarSQL($SQL);       
+      
+                       if($liC){
+                           
+                           
+                                 foreach($liC as $lc){
+            
+            ?>
                                         
                 <?php		
 	
                        
                         
-                        $SQL = "select id_atleta, id_categoria, sum(pontos) total  from atleta_categoria WHERE excluido = 'N' group by id_atleta, id_categoria  order by total desc";
+                        $SQL = "select id_atleta, id_categoria, sum(pontos) total  from atleta_categoria WHERE excluido = 'N' and id_categoria = '".$lc['id_categoria']."' group by id_atleta, id_categoria  order by total desc";
 			
                        $listaA = DB::listarSQL($SQL);       
       
@@ -73,7 +86,9 @@
                        
                        
                        
-                                 } ?>                                        
+                                 } ?>   
+                                          <?php } } ?>
+                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -85,7 +100,7 @@
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
-            
+                               
 
             <!-- Pontuação acumulada por ano -->
             
@@ -101,7 +116,7 @@
                 <div class="col-lg-12">
                     <div class="panel  <?php if(fmod($ano,2)==1){ echo 'panel-yellow';} else { echo 'panel-green'; }?>">
                         <div class="panel-heading">
-                            Pontuação Acumulada <?= $ano ?>
+                            Pontuação <?= $ano ?>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -119,12 +134,25 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php 
+            //localizar as categorias que o atleta participa
+            
+            $SQL = "select distinct id_categoria from atleta_categoria where id_atleta = 1";
+            
+              $liC = DB::listarSQL($SQL);       
+      
+                       if($liC){
+                           
+                           
+                                 foreach($liC as $lc){
+            
+            ?>
                                         
                 <?php		
 	
                        
                         
-                        $SQL = "select ano,id_atleta, id_categoria, sum(pontos) total  from atleta_categoria WHERE excluido = 'N' and ano = '".$ano."' group by ano,id_atleta, id_categoria  order by total desc";
+                        $SQL = "select ano,id_atleta, id_categoria, sum(pontos) total  from atleta_categoria WHERE excluido = 'N' and ano = '".$ano."' and id_categoria = '".$lc['id_categoria']."' group by ano,id_atleta, id_categoria  order by total desc";
 			
                        $listaA = DB::listarSQL($SQL);       
       
@@ -150,7 +178,7 @@
                        
                        
                        
-                                 } ?>                                        
+                       }  }}?>                                        
                                     </tbody>
                                 </table>
                             </div>
