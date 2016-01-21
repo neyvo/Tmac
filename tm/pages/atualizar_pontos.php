@@ -32,7 +32,16 @@
                                         
                                         <div class="form-group">
                                             <label>Ano</label>
-                                            <input class="form-control" name="p[ano]" value="<?= $o['ano'] ?>" required />                                            
+                                            <select class="form-control" name="p[ano]" required>
+                                            <?php 
+                                            $ano = date('Y');
+                                            
+                                            while($ano > 2006){
+                                            
+                                            ?>                                                
+                                            <option <?php if($o['ano'] == $ano) { ?>selected <?php } ?> value="<?= $ano ?>"><?= $ano ?></option>
+                                            <?php $ano--; } ?>
+                                            </select>
                                         </div>                                        
                                         
                                         <div class="form-group">
