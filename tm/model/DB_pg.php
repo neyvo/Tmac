@@ -7,7 +7,7 @@ class DB {
 	
 	
 	public static function conexao(){
-		$conn = pg_connect("host='localhost' port=5432 dbname='nsvbinfo_evsdb' user='nsvbinfo_uevs' password='sucesso@2015'");	
+		$conn = pg_connect("host='localhost' port=5432 dbname='' user='' password=''");	
 		
 		return $conn;
 	}

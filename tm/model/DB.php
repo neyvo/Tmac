@@ -1,7 +1,7 @@
 <?php 
 class DB {
 	public static function conexao(){
-		//$conn = pg_connect("host='localhost' port=5432 dbname='neyvocom_agenda' user='neyvocom_user_agenda' password='agenda@2015'");	
+		
                 $conn = @mysql_connect('localhost', 'root', '');      
                 mysql_select_db('neyvocom_tt', $conn);
 		return $conn;
