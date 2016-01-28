@@ -47,6 +47,9 @@
                         <li>
                             <a href="cad_torneio.php"><i class="fa fa-edit fa-fw"></i> Cadastrar Torneio</a>
                         </li>
+                        <li>
+                            <a href="cad_etapa.php"><i class="fa fa-edit fa-fw"></i> Cadastrar Etapa</a>
+                        </li>
                         <?php } ?>
                         
                         <?php if($_SESSION['id_usuario']) {?>

@@ -14,7 +14,7 @@
 <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h2 class="page-header">Cadastro Torneio</h2>
+                    <h2 class="page-header">Cadastro Etapa</h2>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -23,35 +23,12 @@
                 <div class="col-lg-12">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            Dados do torneio
+                            Dados da Etapa
                         </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
                                     <form role="form" action="../controller/processaGeral.php" method="post">
-                                        
-                                        <div class="form-group">
-                                            <label>Etapa</label>
-                                            <select class="form-control" name="p[id_etapa]">
-                                                
-                                                 <?php		
-	
-                        $pt = "";	        
-                        
-                        $pt['excluido']['valor'] = 'N';
-                        $pt['excluido']['tipo'] = '=';
-			
-                       $listaT = DB::listar("etapa",$pa,"order by nome");       
-      
-                       if($listaT){
-                           
-                                 foreach($listaT as $linhaT){                                                                      
-?>                                                           
-                                                <option <?php if($o['id_etapa'] == $linhaT['id']) { ?>selected <?php } ?> value="<?= $linhaT['id'] ?>"><?= $linhaT['nome'] ?></option>
-                                                <?php } } ?>                                                
-                                            </select>
-                                        </div>
-                                        
                                         <div class="form-group">
                                             <label>Nome</label>
                                             <input class="form-control" name="p[nome]" value="<?= $o['nome'] ?>" required />                                            
@@ -61,21 +38,12 @@
                                             <input class="form-control" name="p[descricao]" value="<?= $o['descricao'] ?>" required />                                            
                                         </div>  
                                         
-                                        <div class="form-group">
-                                            <label>Inicio Inscrição - (<?= formataData($o['datai']) ?>)</label>
-                                            <input class="form-control" placeholder="Data Inicio" name="p[datai]" type="date" value="<?= formataData($o['datai']) ?>" >                                  
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Fim Inscrição - (<?= formataData($o['dataf']) ?>)</label>
-                                            <input class="form-control" placeholder="Data Fim" name="p[dataf]" type="date" value="<?= formataData($o['dataf']) ?>" >                                  
-                                        </div>
-                                        
                                         
                                         <button type="submit" class="btn btn-success">Salvar</button>
                                         <button type="reset" class="btn btn-primary">Limpar</button>
-                                          <input type="hidden" name="objeto" value="torneio" />
+                                          <input type="hidden" name="objeto" value="etapa" />
                                           <input type="hidden" name="acao" value="Salvar" />
-                       <input type="hidden" name="pagina" value="cad_torneio" />
+                       <input type="hidden" name="pagina" value="cad_etapa" />
                        <input type="hidden" name="id" value="<?php echo $o['id']; ?>">
                                         
                                     </form>
@@ -111,7 +79,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-green">
                         <div class="panel-heading">
-                            Lista de Torneios
+                            Lista de Etapas
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -135,7 +103,7 @@
                         $p['excluido']['valor'] = 'N';
                         $p['excluido']['tipo'] = '=';
 			
-                       $lista = DB::listar("torneio",$p,"order by nome");       
+                       $lista = DB::listar("etapa",$p,"order by nome");       
       
                        if($lista){
                            
@@ -145,8 +113,8 @@
                                             <td><?= $linha['id'] ?></td>
                                             <td><?= $linha['nome'] ?></td>
                                             <td><?= $linha['descricao'] ?></td>
-                                            <td><a href="cad_torneio.php?id=<?=$linha['id'];?>"><button type="button" class="btn btn-warning">Alterar</button></a></td>
-                                            <td><a href="../controller/processaExcluir.php?id=<?=$linha['id'];?>&pag=cad_torneio&obj=torneio"><button type="button" class="btn btn-danger">Excluir</button></a></td>                                          
+                                            <td><a href="cad_etapa.php?id=<?=$linha['id'];?>"><button type="button" class="btn btn-warning">Alterar</button></a></td>
+                                            <td><a href="../controller/processaExcluir.php?id=<?=$linha['id'];?>&pag=cad_etapa&obj=etapa"><button type="button" class="btn btn-danger">Excluir</button></a></td>                                          
                                         </tr>                                        
                        <?php } } ?>                                        
                                     </tbody>
