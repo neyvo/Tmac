@@ -22,6 +22,9 @@
                         <li>
                             <a href="inicio.php"><i class="fa fa-dashboard fa-fw"></i> Painel</a>
                         </li>
+                        <li>
+                            <a href="tt_inscricao.php"><i class="fa fa-dashboard fa-fw"></i> Inscrição Torneio</a>
+                        </li>
                           <?php } ?>
                         <li>
                             <a href="index.php"><i class="fa fa-table fa-fw"></i> Ranking Acumulado</a>
@@ -49,6 +52,9 @@
                         </li>
                         <li>
                             <a href="cad_etapa.php"><i class="fa fa-edit fa-fw"></i> Cadastrar Etapa</a>
+                        </li>
+                        <li>
+                            <a href="cad_inscricao.php"><i class="fa fa-edit fa-fw"></i> Cadastrar Inscrição</a>
                         </li>
                         <?php } ?>
                         

@@ -91,8 +91,9 @@ require_once('../util/util.php');
 			if($msg == "") {
 			//echo "<hr>msg dentro: ".$msg; 
 
-                                DB::salvar($_REQUEST['objeto'],$_REQUEST['p']);					
-				$msg = " CADASTRADO COM SUCESSO";
+                               DB::salvar($_REQUEST['objeto'],$_REQUEST['p']);					
+				
+                               $msg = " CADASTRADO COM SUCESSO";
 
 
 				if($_FILES['arquivo']['name']){	
@@ -119,7 +120,8 @@ require_once('../util/util.php');
 				}
 			}
 		}
-		if($_REQUEST['pagina'])
+		
+                if($_REQUEST['pagina'])
 
 			header("location: ../pages/".$_REQUEST['pagina'].".php?msg=".$msg."&".$_REQUEST['retorno']);	
 

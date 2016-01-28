@@ -1,5 +1,7 @@
 <?php 
 
+/*
+
 class DB {
 	
 	
@@ -446,4 +448,7 @@ where id_edital = '$id_edital' and id_usuario = '$id_usuario' ";
 	
 	
 }
+ * 
+ * 
+ */
 ?>
