@@ -91,9 +91,21 @@ require_once('../util/util.php');
 			if($msg == "") {
 			//echo "<hr>msg dentro: ".$msg; 
 
+                            $insc = true;
+                            
+                            if($_REQUEST['objeto'] == 'inscricao'){
+                                
+                                $insc = DB::verificarInscricao($_REQUEST['p']['id_atleta'],$_REQUEST['p']['id_torneio'],$_REQUEST['p']['id_categoria']);
+                            }   
+                            
+                            if($insc){
                                DB::salvar($_REQUEST['objeto'],$_REQUEST['p']);					
 				
                                $msg = " CADASTRADO COM SUCESSO";
+                            }
+                            else {
+                                $msg = " ERRO - INSCRICAO JA EFETUADA";
+                            }
 
 
 				if($_FILES['arquivo']['name']){	

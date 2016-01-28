@@ -211,5 +211,19 @@ class DB {
 		return $r['id'];
 		
 	}
+        
+        public static function verificarInscricao($atleta,$torneio,$categoria){
+
+		$conn = DB::conexao();
+		$SQL = "SELECT * FROM inscricao where id_atleta = ".$atleta." and id_categoria = ".$categoria." and id_torneio = ".$torneio." and excluido = 'N' ";
+		$SQL = mysql_query($SQL);
+		
+		$r = mysql_fetch_array($SQL);
+		if ($r['id'] > 0 )
+                    return false;
+                else
+                    return true;
+		
+	}
 }
 ?>

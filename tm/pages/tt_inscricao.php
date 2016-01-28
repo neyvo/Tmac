@@ -31,6 +31,7 @@
 	
                         $pt = "";	        
                         
+                        
                         $pt['excluido']['valor'] = 'N';
                         $pt['excluido']['tipo'] = '=';
                         
@@ -39,6 +40,11 @@
                         
                         $pt['dataf']['valor'] = hoje("Y-m-d");
                         $pt['dataf']['tipo'] = '>=';
+                        
+                        if($_REQUEST['t']){
+                        $pt['id']['valor'] = $_REQUEST['t'];
+                        $pt['id']['tipo'] = '=';
+                        }
 			
                        $listaT = DB::listar("torneio",$pt,"order by nome");       
       

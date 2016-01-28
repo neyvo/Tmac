@@ -22,10 +22,11 @@
                         <li>
                             <a href="inicio.php"><i class="fa fa-dashboard fa-fw"></i> Painel</a>
                         </li>
-                        <li>
-                            <a href="tt_inscricao.php"><i class="fa fa-dashboard fa-fw"></i> Inscrição Torneio</a>
-                        </li>
+                        
                           <?php } ?>
+                        <li>
+                            <a href="tt_torneio.php"><i class="fa fa-dashboard fa-fw"></i> Inscrição Torneio</a>
+                        </li>
                         <li>
                             <a href="index.php"><i class="fa fa-table fa-fw"></i> Ranking Acumulado</a>
                         </li>

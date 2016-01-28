@@ -58,7 +58,7 @@
                                         </div>                                        
                                         <div class="form-group">
                                             <label>Descrição</label>
-                                            <input class="form-control" name="p[descricao]" value="<?= $o['descricao'] ?>" required />                                            
+                                            <textarea class="form-control" name="p[descricao]" required><?= $o['descricao'] ?></textarea>                                         
                                         </div>  
                                         
                                         <div class="form-group">
