@@ -45,7 +45,7 @@
                                         </div>                                        
                                         
                                         <div class="form-group">
-                                            <label>Torneio</label>
+                                            <label>Etapa</label>
                                             <select class="form-control" name="p[id_torneio]">
                                                 
                                                  <?php		
@@ -55,7 +55,7 @@
                         $pt['excluido']['valor'] = 'N';
                         $pt['excluido']['tipo'] = '=';
 			
-                       $listaT = DB::listar("torneio",$pa,"order by nome");       
+                       $listaT = DB::listar("etapa",$pa,"order by nome");       
       
                        if($listaT){
                            
@@ -207,7 +207,7 @@
                                      
                                      $atleta = DB::procurar("atleta", $linha['id_atleta']);
                                      $categoria = DB::procurar("categoria", $linha['id_categoria']);
-                                     $torneio = DB::procurar("torneio", $linha['id_torneio']);
+                                     $torneio = DB::procurar("etapa", $linha['id_torneio']);
 ?>                                        
                                         <tr class="gradeA">
                                             <td><?= $linha['ano'] ?></td>

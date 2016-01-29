@@ -255,7 +255,7 @@
                                      
                                      $atleta = DB::procurar("atleta", $linha['id_atleta']);
                                      $categoria = DB::procurar("categoria", $linha['id_categoria']);
-                                     $torneio = DB::procurar("torneio", $linha['id_torneio']);
+                                     $torneio = DB::procurar("etapa", $linha['id_torneio']);
 ?>                                        
                                         <tr class="gradeA">
                                             <td><?= $linha['ano'] ?></td>
