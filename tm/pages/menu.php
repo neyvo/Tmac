@@ -39,6 +39,10 @@
                         </li>
                         
                         <?php if($_SESSION['perfil'] == 'ADMINISTRADOR') { ?>
+                        
+                         <li>
+                            <a href="gerenciar_torneio.php"><i class="fa fa-dashboard fa-fw"></i> Gerenciar Torneio</a>
+                        </li>
                          <li>
                              <a href="atualizar_pontos.php"><i class="fa fa-edit fa-fw"></i> Atualizar Pontos</a>
                         </li>
