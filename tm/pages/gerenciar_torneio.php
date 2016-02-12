@@ -49,11 +49,9 @@
                         $p['excluido']['valor'] = 'N';
                         $p['excluido']['tipo'] = '=';               
                                              
-                        $p['datai']['valor'] = hoje("Y-m-d");
-                        $p['datai']['tipo'] = '<=';
-                        
-                        $p['dataf']['valor'] = hoje("Y-m-d");
-                        $p['dataf']['tipo'] = '>=';
+                        $p['ativo']['valor'] = "S";
+                        $p['ativo']['tipo'] = '=';
+                                                
 			
                        $lista = DB::listar("torneio",$p,"order by nome");       
       

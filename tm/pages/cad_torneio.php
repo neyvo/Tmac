@@ -53,6 +53,31 @@
                                         </div>
                                         
                                         <div class="form-group">
+                                            <label>Categoria</label>
+                                            <select class="form-control" name="p[id_categoria]">
+                                                
+                                                 <?php		
+	
+                        $pc = "";	        
+                        
+                        $pc['excluido']['valor'] = 'N';
+                        $pc['excluido']['tipo'] = '=';
+			
+                       $listaC = DB::listar("categoria",$pc,"order by nome");       
+      
+                       if($listaC){
+                           
+                                 foreach($listaC as $linhaC){
+                                     
+                                 
+?>                                                           
+                                                <option <?php if($o['id_categoria'] == $linhaC['id']) { ?>selected <?php } ?> value="<?= $linhaC['id'] ?>"><?= $linhaC['nome'] ?></option>
+                                                <?php } } ?>
+                                                
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="form-group">
                                             <label>Nome</label>
                                             <input class="form-control" name="p[nome]" value="<?= $o['nome'] ?>" required />                                            
                                         </div>                                        
@@ -70,6 +95,19 @@
                                             <input class="form-control" placeholder="Data Fim" name="p[dataf]" type="date" value="<?= formataData($o['dataf']) ?>" >                                  
                                         </div>
                                         
+                                         <div class="form-group">
+                                            <label>Ativo</label>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="p[ativo]" id="optionsRadios1" value="S" <?php if($o['ativo']=='S') { ?> checked <?php } ?>>SIM
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="p[ativo]" id="optionsRadios3" value="N" <?php if($o['ativo']=='N') { ?> checked <?php } ?>>NAO
+                                                </label>
+                                            </div>
+                                        </div>
                                         
                                         <button type="submit" class="btn btn-success">Salvar</button>
                                         <button type="reset" class="btn btn-primary">Limpar</button>
@@ -121,7 +159,8 @@
                                         <tr>
                                             <th>Codigo</th>                                            
                                             <th>Nome</th>
-                                            <th>Tipo</th>                                            
+                                            <th>Tipo</th>  
+                                            <th>Categoria</th>  
                                             <th>Descricao</th>
                                             <th>Alterar</th>
                                             <th>Excluir</th>
@@ -142,12 +181,14 @@
                            
                                  foreach($lista as $linha){
                                      
-                                     $tipo = DB::procurar("etapa", $linha['id_etapa'])
+                                     $tipo = DB::procurar("etapa", $linha['id_etapa']);
+                                     $cat = DB::procurar("categoria", $linha['id_categoria']);
 ?>                                        
                                         <tr class="gradeA">
                                             <td><?= $linha['id'] ?></td>                                            
                                             <td><?= $linha['nome'] ?></td>
                                             <td><?= $tipo['nome'] ?></td>
+                                            <td><?= $cat['nome'] ?></td>
                                             <td><?= $linha['descricao'] ?></td>
                                             <td><a href="cad_torneio.php?id=<?=$linha['id'];?>"><button type="button" class="btn btn-warning">Alterar</button></a></td>
                                             <td><a href="../controller/processaExcluir.php?id=<?=$linha['id'];?>&pag=cad_torneio&obj=torneio"><button type="button" class="btn btn-danger">Excluir</button></a></td>                                          
