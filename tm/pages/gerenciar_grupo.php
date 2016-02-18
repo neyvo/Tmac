@@ -130,6 +130,7 @@
                                           <input type="hidden" name="objeto" value="grupo" />
                                           <input type="hidden" name="acao" value="Salvar" />
                                           <input type="hidden" name="id" value="<?php echo $o['id']; ?>">                                          
+                                          <input type="hidden" name="p[id_categoria]" value="<?= $_SESSION['cat']; ?>">                                          
                        <input type="hidden" name="pagina" value="gerenciar_grupo" />
                        
                                         
@@ -162,6 +163,13 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
+            
+             <div class="row">
+                <div class="col-lg-12">
+                    <h2 class="page-header"><?= $torneio['nome']. " - ".$categoria['nome'] ?></h2>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-green">
@@ -193,6 +201,11 @@
                         
                         $p['id_torneio']['valor'] = $_SESSION['tt'];
                         $p['id_torneio']['tipo'] = '=';
+                        
+                        $p['id_categoria']['valor'] = $_SESSION['cat'];
+                        $p['id_categoria']['tipo'] = '=';
+                        
+                        
 			
                        $lista = @DB::listar("grupo",$p,"order by nome,numero");       
       

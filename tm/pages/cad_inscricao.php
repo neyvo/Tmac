@@ -86,7 +86,30 @@
                                         
                                         
                                         
-                                         
+                                         <div class="form-group">
+                                            <label>Categoria</label>
+                                            <select class="form-control" name="p[id_categoria]">
+                                                
+                                                 <?php		
+	
+                        $pc = "";	        
+                        
+                        $pc['excluido']['valor'] = 'N';
+                        $pc['excluido']['tipo'] = '=';
+			
+                       $listaC = DB::listar("categoria",$pc,"order by nome");       
+      
+                       if($listaC){
+                           
+                                 foreach($listaC as $linhaC){
+                                     
+                                 
+?>                                                           
+                                                <option <?php if($o['id_categoria'] == $linhaC['id']) { ?>selected <?php } ?> value="<?= $linhaC['id'] ?>"><?= $linhaC['nome'] ?></option>
+                                                <?php } } ?>
+                                                
+                                            </select>
+                                        </div>
                                         
                                          <div class="form-group">
                                             <label>Situação</label>
@@ -151,7 +174,7 @@
                                     <thead>
                                         <tr>
                                             <th>Torneio</th>                                            
-                                         
+                                            <th>Categoria</th>                                            
                                             <th>Atleta</th>                                            
                                             <th>Data Inscrição</th>                                            
                                             <th>Situação</th>
@@ -180,11 +203,11 @@
                                      $tt = DB::procurar("torneio", $linha['id_torneio']);
                                      $atle = DB::procurar("atleta", $linha['id_atleta']);
                                      $tipo = DB::procurar("etapa", $tt['id_etapa']);
-                                  
+                                     $cat = DB::procurar("categoria", $linha['id_categoria']);
 ?>                                        
                                         <tr class="gradeA">
                                             <td><?= $tt['nome']." - ".$tipo['nome'] ?></td>                                            
-                                           
+                                            <td><?= $cat['nome'] ?></td>
                                             <td><?= $atle['nome'] ?></td>
                                             <td><?= formataDataHora($linha['data_hora']) ?></td>
                                             <?php if($linha['situacao'] == 'PENDENTE'){ ?>
